@@ -1,4 +1,4 @@
-# Material desenvolvido como parte de um curso de Segurança da Informação*
+# Material desenvolvido como parte de um curso de Segurança da Informação
 
 Este repositório reúne scripts estudados em um curso introdutório de Segurança da Informação, com foco em compreender — na prática — como algumas ameaças funcionam.
 O objetivo não é ofensivo, mas sim educacional:
